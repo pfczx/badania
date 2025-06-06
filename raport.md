@@ -10,16 +10,42 @@ W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie war
 #dodac model z r 
 Wykorzystanie AHP do ustalenia wag w kategoriach
 ```r
+m <- matrix(c(
+  # Kryteria:   Sta  Wyd  Bez  Obs  Opr  Narz Społ Komp Koszt Pers
+  1,            4,   4,   5,   4,   1,   5,   4,   2,   2,      # Stabilność
+  
+  1/4,          1,   1,   2,   1,   1/4, 2,   1,   1/3, 1/3,    # Wydajność
+  
+  1/4,          1,   1,   2,   1,   1/4, 2,   1,   1/3, 1/3,    # Bezpieczeństwo
+
+  1/5,          1/2, 1/2, 1,   1/2, 1/5, 1,   1/2, 1/4, 1/4,    # Łatwość obsługi
+  
+  1/4,          1,   1,   2,   1,   1/4, 2,   1,   1/3, 1/3,    # Oprogramowanie
+  
+  1,            4,   4,   5,   4,   1,   5,   4,   2,   2,      # Narzędzia
+  
+  1/5,          1/2, 1/2, 1,   1/2, 1/5, 1,   1/2, 1/4, 1/4,    # Społeczność
+  
+  1/4,          1,   1,   2,   1,   1/4, 2,   1,   1/3, 1/3,    # Kompatybilność
+  
+  1/2,          3,   3,   4,   3,   1/2, 4,   3,   1,   1,      # Koszt
+  
+  1/2,          3,   3,   4,   3,   1/2, 4,   3,   1,   1       # Personalizacja
+), nrow = 10, byrow = TRUE)
+
+weights <- ahp(m)
+print(weights$weighting)
+print(weights$Saaty)
 ```
 Ustalenie najlepszego systemu operacyjnego za pomocą TOPSIS
 ```r
 ```
 # Porównania dla AHP
-### 1. Stabilność
+### 1.Stabilność / awaryjność
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Stabilność** | 1 | 2 | 3 | 4 | 2 | 3 | 2 | 3 | 4 | 5 |
+| **Stabilność** | 1 | 4 | 4 | 5 | 4 | 1 | 5 | 4 | 2 | 2 |
 
 ---
 
@@ -27,7 +53,7 @@ Ustalenie najlepszego systemu operacyjnego za pomocą TOPSIS
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Wydajność** | 0.5 | 1 | 2 | 3 | 2 | 2 | 1 | 2 | 3 | 4 |
+| **Wydajność** | 1/4 | 1 | 1 | 2 | 1 | 1/4 | 2 | 1 | 1/3 | 1/3 |
 
 ---
 
@@ -35,7 +61,7 @@ Ustalenie najlepszego systemu operacyjnego za pomocą TOPSIS
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Bezpieczeństwo** | 0.3333333333333333 | 0.5 | 1 | 2 | 1 | 2 | 1 | 1 | 2 | 3 |
+| **Bezpieczeństwo** | 1/4| 1 | 1 | 2 | 1 | 1/4 | 2 | 1 | 1/3| 1/3 |
 
 ---
 
@@ -43,47 +69,47 @@ Ustalenie najlepszego systemu operacyjnego za pomocą TOPSIS
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Łatwość obsługi** | 0.25 | 0.3333333333333333 | 0.5 | 1 | 1 | 1 | 1 | 1 | 2 | 2 |
+| **Łatwość obsługi** | 1/5 | 1/2 | 1/2 | 1 | 1/2 | 1/5 | 1 | 1/2 | 1/4 | 1/4 |
 
 ---
 
-### 5. Oprogramowanie
+### 5. Dostępność oprogramowania
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Oprogramowanie** | 0.5 | 0.5 | 1 | 1 | 1 | 2 | 2 | 1 | 2 | 3 |
+| **Oprogramowanie** | 1/4 |1| 1 | 2 | 1 | 1/4 | 2 | 1| 1/3 | 1/3 |
 
 ---
 
-### 6. Narzędzia
+### 6. Narzędzia deweloperskie
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Narzędzia** | 0.3333333333333333 | 0.5 | 0.5 | 1 | 0.5 | 1 | 1 | 1 | 2 | 2 |
+| **Narzędzia** | 1 |4 |4 | 5 |4 | 1 | 5 | 4 | 2 | 2 |
 
 ---
 
-### 7. Społeczność
+### 7. Wsparcie / społeczność
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Społeczność** | 0.5 | 1 | 1 | 1 | 0.5 | 1 | 1 | 1 | 2 | 2 |
+| **Społeczność** | 1/5 | 1/2 | 1 | 1/2 | 1/5 | 1 | 1/2 | 1/2 | 1/4 | 1/4 |
 
 ---
 
-### 8. Kompatybilność
+### 8.Kompatybilność ze sprzętem
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Kompatybilność** | 0.3333333333333333 | 0.5 | 1 | 1 | 1 | 1 | 1 | 1 | 2 | 2 |
+| **Kompatybilność** | 1/4| 1 | 1 | 2 | 1 | 1/4 | 2 | 1 | 1/3 | 1/3 |
 
 ---
 
-### 9. Koszt
+### 9. Koszt licencji
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Koszt** | 0.25 | 0.3333333333333333 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 1 | 2 |
+| **Koszt** | 1/2 | 3 | 3 | 4 |3 | 1/2 |4 |3 | 1 | 1 |
 
 ---
 
@@ -91,25 +117,27 @@ Ustalenie najlepszego systemu operacyjnego za pomocą TOPSIS
 
 | Kryterium     | Stabilność | Wydajność | Bezpieczeństwo | Łatwość obsługi | Oprogramowanie | Narzędzia | Społeczność | Kompatybilność | Koszt | Personalizacja |
 |---------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| **Personalizacja** | 0.2 | 0.25 | 0.3333333333333333 | 0.5 | 0.3333333333333333 | 0.5 | 0.5 | 0.5 | 0.5 | 1 |
+| **Personalizacja** | 1/2| 3 | 3 | 4 | 3 | 1/2 | 4 | 3 | 1 | 1 |
 
 ---
+Jakość porównań zmierzono współczynnikiem spójności Saatye`ego (Consistency Ratio).
+W naszym przypadku wyniósł 0.008365929 co wskazuje na wysoką jakość udzielonych odpowiedzi.
 
 
 
 # Ocena liczbowa dla systemów
 | Kryterium                     | Waga (%) | Ubuntu | Fedora | Windows | macOS |
 |-------------------------------|:----------:|:--------:|:--------:|:---------:|:-------:|
-| **Stabilność / awaryjność**   |          |    7    |   6     |    6     |   8    |
-| **Wydajność**                 |          |    6    |    8    |     3    |    7   |
-| **Bezpieczeństwo**            |          |     8   |    8    |    6     |     8  |
-| **Łatwość obsługi**           |          |     5   |     4   |     9    |    7   |
-| **Dostępność oprogramowania** |          |     6   |     6   |    9     |     8  |
-| **Narzędzia deweloperskie**   |          |    8    |     9   |      6   |     8  |
-| **Wsparcie / społeczność**    |          |    8    |     6   |    8     |     8  |
-| **Kompatybilność ze sprzętem**|          |     7   |    7    |     9    |    5   |
-| **Koszt licencji**            |          |     9   |    9    |     4    |    2   |
-| **Personalizacja**            |          |     7   |    9    |      4  |    5   |
+| **Stabilność / awaryjność**   |      0.21707540    |    7    |   6     |    6     |   8    |
+| **Wydajność**                 |     0.05497388     |    6    |    8    |     3    |    7   |
+| **Bezpieczeństwo**            |     0.05497388     |     8   |    8    |    6     |     8  |
+| **Łatwość obsługi**           |     0.03274678     |     5   |     4   |     9    |    7   |
+| **Dostępność oprogramowania** |      0.05497388    |     6   |     6   |    9     |     8  |
+| **Narzędzia deweloperskie**   |      0.21707540    |    8    |     9   |      6   |     8  |
+| **Wsparcie / społeczność**    |    0.03274678      |    8    |     6   |    8     |     8  |
+| **Kompatybilność ze sprzętem**|     0.05497388     |     7   |    7    |     9    |    5   |
+| **Koszt licencji**            |      0.14023006    |     9   |    9    |     4    |    2   |
+| **Personalizacja**            |      0.14023006    |     7   |    9    |      4  |    5   |
 
 
 
