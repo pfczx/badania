@@ -1,0 +1,18 @@
+install.packages("pmr") 
+library('pmr')
+pairwiseMatrix <- matrix(c(
+  #1    2     3     4     5     6     7     8     9     10
+  1,    2,    3,    4,    2,    3,    2,    3,    4,    5,    # 1 Stabilność  
+  0.5,  1,    2,    3,    2,    2,    1,    2,    3,    4,    # 2 Wydajność
+  1/3,  0.5,  1,    2,    1,    2,    1,    1,    2,    3,    # 3 Bezpieczeństwo
+  1/4,  1/3,  0.5,  1,    1,    1,    1,    1,    2,    2,    # 4 Łatwość obsługi
+  0.5,  0.5,  1,    1,    1,    2,    2,    1,    2,    3,    # 5 Oprogramowanie
+  1/3,  0.5,  0.5,  1,    0.5,  1,    1,    1,    2,    2,    # 6 Narzędzia
+  0.5,  1,    1,    1,    0.5,  1,    1,    1,    2,    2,    # 7 Społeczność
+  1/3,  0.5,  1,    1,    1,    1,    1,    1,    2,    2,    # 8 Kompatybilność
+  1/4,  1/3,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  1,    2,    # 9 Koszt
+  1/5,  1/4,  1/3,  0.5,  1/3,  0.5,  0.5,  0.5,  0.5,  1     # 10 Personalizacja
+), nrow = 10, byrow = TRUE)
+
+weights <- ahp(pairwiseMatrix)
+print(weights)
