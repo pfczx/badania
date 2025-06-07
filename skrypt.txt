@@ -1,6 +1,7 @@
 install.packages("pmr") 
-
 library('pmr')
+
+#AHP
 m <- matrix(c(
   # Kryteria:   Sta  Wyd  Bez  Obs  Opr  Narz Społ Komp Koszt Pers
   1,            4,   4,   5,   4,   1,   5,   4,   2,   2,      # Stabilność
@@ -25,6 +26,45 @@ m <- matrix(c(
 ), nrow = 10, byrow = TRUE)
 
 weights <- ahp(m)
-print(weights$weighting)
+
+#Topsis
+decision_matrix <- matrix(c(
+  7, 6, 9, 5, 5, 8, 8, 7, 9, 7,     # Ubuntu
+  5, 8, 9, 4, 5, 9, 6, 7, 9, 9,     # Fedora
+  6, 3, 3, 9, 9, 4, 6, 9, 4, 4,     # Windows
+  9, 7, 8, 6, 8, 7, 6, 3, 2, 5      # macOS
+), nrow = 4, byrow = TRUE)
+
+alternatives <- c("Ubuntu", "Fedora", "Windows", "macOS")
+
+
+#Normalizacja 
+norm_matrix <- decision_matrix / sqrt(colSums(decision_matrix^2))
+
+#Pomnożenie przez wagi
+weighted_matrix <- norm_matrix * as.numeric(weights$weighting)
+
+#Ideał (max) i antyideał (min)
+ideal_best <- apply(weighted_matrix, 2, max)
+ideal_worst <- apply(weighted_matrix, 2, min)
+
+#Dystanse do ideału i antyideału
+distance_to_best <- sqrt(rowSums((weighted_matrix - matrix(ideal_best, nrow=4, ncol=10, byrow=TRUE))^2))
+distance_to_worst <- sqrt(rowSums((weighted_matrix - matrix(ideal_worst, nrow=4, ncol=10, byrow=TRUE))^2))
+
+#Wartość TOPSIS
+topsis_score <- distance_to_worst / (distance_to_best + distance_to_worst)
+
+#Ranking
+ranking <- order(topsis_score, decreasing = TRUE)
+
+#Wyniki
+result <- data.frame(
+  System = alternatives,
+  TopsisScore = topsis_score
+)
+print(result)
 print(weights$Saaty)
+
+
 

@@ -7,7 +7,8 @@ Projekt przedstawia problem wielokryterialny jakim jest wybór systemu operacyjn
 W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie wartości (0-9) dla każdej kategorii. To jaka wartość została nadana zależy od benchmarków, oceny własnej lub wypowiedzi użytkowników serwisów tematycznych. Każdej z kategorii przy pomocy metody AHP (Analytic Hierarchy Process) przypisano odpowiednią wagę. Następnie wykorzystaliśmy metodę TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) by wyłonić najlepszy system.
 # Model 
 #opisac ten model formalny cos jak f-> min itd tak jak na zajeciach, opisac ahp i topsisa na naszych danych
-#dodac model z r 
+
+
 Wykorzystanie AHP do ustalenia wag w kategoriach
 ```r
 m <- matrix(c(
@@ -34,11 +35,47 @@ m <- matrix(c(
 ), nrow = 10, byrow = TRUE)
 
 weights <- ahp(m)
-print(weights$weighting)
-print(weights$Saaty)
+
 ```
 Ustalenie najlepszego systemu operacyjnego za pomocą TOPSIS
 ```r
+
+#Topsis
+decision_matrix <- matrix(c(
+  7, 6, 9, 5, 5, 8, 8, 7, 9, 7,     # Ubuntu
+  5, 8, 9, 4, 5, 9, 6, 7, 9, 9,     # Fedora
+  6, 3, 3, 9, 9, 4, 6, 9, 4, 4,     # Windows
+  9, 7, 8, 6, 8, 7, 6, 3, 2, 5      # macOS
+), nrow = 4, byrow = TRUE)
+
+alternatives <- c("Ubuntu", "Fedora", "Windows", "macOS")
+
+#Normalizacja 
+norm_matrix <- decision_matrix / sqrt(colSums(decision_matrix^2))
+
+#Pomnożenie przez wagi
+weighted_matrix <- norm_matrix * as.numeric(weights$weighting)
+
+#Ideał (max) i antyideał (min)
+ideal_best <- apply(weighted_matrix, 2, max)
+ideal_worst <- apply(weighted_matrix, 2, min)
+
+#Dystanse do ideału i antyideału
+distance_to_best <- sqrt(rowSums((weighted_matrix - matrix(ideal_best, nrow=4, ncol=10, byrow=TRUE))^2))
+distance_to_worst <- sqrt(rowSums((weighted_matrix - matrix(ideal_worst, nrow=4, ncol=10, byrow=TRUE))^2))
+
+#Wartość TOPSIS
+topsis_score <- distance_to_worst / (distance_to_best + distance_to_worst)
+
+#Ranking
+ranking <- order(topsis_score, decreasing = TRUE)
+
+#Wyniki
+result <- data.frame(
+  System = alternatives,
+  TopsisScore = topsis_score
+)
+
 ```
 # Porównania dla AHP
 ### 1.Stabilność / awaryjność
@@ -128,19 +165,41 @@ W naszym przypadku wyniósł 0.008365929 co wskazuje na wysoką jakość udzielo
 # Ocena liczbowa dla systemów
 | Kryterium                     | Waga (%) | Ubuntu | Fedora | Windows | macOS |
 |-------------------------------|:----------:|:--------:|:--------:|:---------:|:-------:|
-| **Stabilność / awaryjność**   |      0.21707540    |    7    |   6     |    6     |   8    |
+| **Stabilność / awaryjność**   |      0.21707540    |    7    |   5     |    6     |   9    |
 | **Wydajność**                 |     0.05497388     |    6    |    8    |     3    |    7   |
-| **Bezpieczeństwo**            |     0.05497388     |     8   |    8    |    6     |     8  |
-| **Łatwość obsługi**           |     0.03274678     |     5   |     4   |     9    |    7   |
-| **Dostępność oprogramowania** |      0.05497388    |     6   |     6   |    9     |     8  |
-| **Narzędzia deweloperskie**   |      0.21707540    |    8    |     9   |      6   |     8  |
-| **Wsparcie / społeczność**    |    0.03274678      |    8    |     6   |    8     |     8  |
-| **Kompatybilność ze sprzętem**|     0.05497388     |     7   |    7    |     9    |    5   |
+| **Bezpieczeństwo**            |     0.05497388     |     9   |    9    |    3     |     8  |
+| **Łatwość obsługi**           |     0.03274678     |     5   |     4   |     9    |    6   |
+| **Dostępność oprogramowania** |      0.05497388    |     5   |     5   |    9     |     8  |
+| **Narzędzia deweloperskie**   |      0.21707540    |    8    |     9   |      4   |     7  |
+| **Wsparcie / społeczność**    |    0.03274678      |    8    |     6   |    6     |     6  |
+| **Kompatybilność ze sprzętem**|     0.05497388     |     7   |    7    |     9    |    3   |
 | **Koszt licencji**            |      0.14023006    |     9   |    9    |     4    |    2   |
 | **Personalizacja**            |      0.14023006    |     7   |    9    |      4  |    5   |
 
+# Wyniki
+Na podstawie analizy TOPSIS uzyskaliśmy następujące wyniki:
+| Rank | System | TOPSIS Score | 
+|:------:|:----------:|:--------------:| 
+| 1 | Ubuntu | 0.4898 |
+| 2 | Fedora | 0.4797 |
+| 3 | Windows | 0.4260 |
+| 4 | macOS | 0.3392 |
+Na podstawie analizy metodą TOPSIS, systemy Ubuntu i Fedora uzyskały najwyższe oceny, co wskazuje na ich wysoką ogólną jakość w kontekście zdefiniowanych kryteriów. Ubuntu osiągnęło najwyższy wynik , wyprzedzając Fedorę  jedynie nieznacznie, co oznacza, że oba systemy oferują bardzo zbliżony poziom atrakcyjności. Windows uplasował się na trzecim miejscu (0.4260), głównie dzięki dobremu wynikowi w łatwości obsługi oraz kompatybilności. MacOS uzyskał najniższy wynik, co może wynikać z jego relatywnie wysokiego kosztu oraz ograniczonej możliwości personalizacji. Warto zauważyć, że najwyższe wagi przypisano kryteriom stabilności i narzędzi deweloperskich, w których zarówno Ubuntu, jak i Fedora uzyskały bardzo dobre oceny. Ostateczny ranking potwierdza, że systemy open-source — szczególnie Ubuntu — najlepiej spełniają potrzeby studenta informatyki przy uwzględnieniu najistotniejszych kryteriów decyzyjnych.
 
+# Analiza wrażliwości
+#dodac analize wlsciwosci i opisac ja dokladnie z radami dla decydenta jesli np potrzbuje czegos innego troche itd policzyc ale nie wklejac juz wiecej kodu do prezentacji dorobic to w r
 
+#dodac jakies rzeczy ktorych moglem zapomniec 
+#upiekszyc dodac np zdjecia czy zrzut ekranu systemow podopisywac cos ewentualnie
 
-
-
+# Źródła
+https://go.lightnode.com/tech/linux-fedora-vs-ubuntu
+https://fedoraproject.org/wiki/Security_Features#:~:text=SELinux
+https://www.inapps.net/ubuntu-vs-mac-os-2022/#:~:text=,and%20low%20vulnerability%20to%20viruses
+https://blog.udemy.com/ubuntu-vs-windows/#:~:text=8,Cumbersome
+https://blog.udemy.com/ubuntu-vs-windows/#:~:text=9.%20User
+https://medium.com/@nomannayeem/choosing-the-right-os-mac-windows-or-linux-a-programmers-guide-2d128c40fc73
+https://www.reddit.com/
+https://www.phoronix.com/
+https://discourse.ubuntu.com/
+https://fedoraproject.org/
