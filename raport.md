@@ -184,6 +184,7 @@ Na podstawie analizy TOPSIS uzyskaliśmy następujące wyniki:
 | 2 | Fedora | 0.4797 |
 | 3 | Windows | 0.4260 |
 | 4 | macOS | 0.3392 |
+
 Na podstawie analizy metodą TOPSIS, systemy Ubuntu i Fedora uzyskały najwyższe oceny, co wskazuje na ich wysoką ogólną jakość w kontekście zdefiniowanych kryteriów. Ubuntu osiągnęło najwyższy wynik , wyprzedzając Fedorę  jedynie nieznacznie, co oznacza, że oba systemy oferują bardzo zbliżony poziom atrakcyjności. Windows uplasował się na trzecim miejscu (0.4260), głównie dzięki dobremu wynikowi w łatwości obsługi oraz kompatybilności. MacOS uzyskał najniższy wynik, co może wynikać z jego relatywnie wysokiego kosztu oraz ograniczonej możliwości personalizacji. Warto zauważyć, że najwyższe wagi przypisano kryteriom stabilności i narzędzi deweloperskich, w których zarówno Ubuntu, jak i Fedora uzyskały bardzo dobre oceny. Ostateczny ranking potwierdza, że systemy open-source — szczególnie Ubuntu — najlepiej spełniają potrzeby studenta informatyki przy uwzględnieniu najistotniejszych kryteriów decyzyjnych.
 
 # Analiza wrażliwości
