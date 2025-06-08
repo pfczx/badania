@@ -24,12 +24,14 @@ Zapisane w tablicy kryteria porównujemy parami przypisyjąc im znaczenie w skal
 * 5: zdecydowanie ważniejsze
 * 7: bardzo silnie ważniejsze
 * 9: absolutnie ważniejsze
-Oto przykład tego kroku dla wyboru telewizora. 
+Oto przykład tego kroku dla wyboru telewizora.
+ 
 |               | Cena | Rozmiar | Rozdzielczość |                  
 |---------------|------|---------|---------------|
 | Cena          |   1  |    3    |       7       |
 | Rozmiar       |  1/3 |    1    |       5       |
 | Rozdzielczość |  1/7 |   1/5   |       1       |
+
 Dla osoby wybierającej telewizor *rozmiar* jest zdecydowanie ważniejszy niż *rozdzielczość*, więc w pole rozmiar/rozdzilczość wpisujemy 5, a w pole odwrotne - odwrotność liczby 5.
 
 
