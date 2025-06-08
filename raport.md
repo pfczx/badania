@@ -61,7 +61,7 @@ W kolejnym kroku mnożymy wartości komórek razy wagę i sumujemy wiersze.
 | Rozdzielczość | 0,14 * 3,67 | 0,2 * 2,11 |       1 * 0,45|    1,4  |
 
 Następnie obliczamy *Consistency Index* (C.I.). 
-CI = λmax - n / n - 1
+![image](https://github.com/user-attachments/assets/ec153b32-734f-4bdc-b58d-f60d25fdef31)
 gdzie
 λmax to średnia wartości **Suma * Waga** każdego wiersza, a **n** to liczba kryteriów. 
 
@@ -96,6 +96,27 @@ By otrzymać znormalizowaną macierz decyzji, dzielimy wartości pól przez sumy
 | **Telefon 3**           | 0,5314 * Waga     | 0,6030 * Waga  | 0,5714 * Waga  | 0,4781 * Waga |
 | **Telefon 4**           | 0,4871 * Waga   | 0,6030 * Waga          | 0,2857 * Waga |  0,4781 * Waga     |
 | **Telefon 5**           | 0,3985 * Waga    | 0,3015 * Waga        | 0,5714 * Waga  | 0,2390 * Waga   |
+
+W ten sposób otrzymujemy znormalizowaną, ważoną macierz decyzji, dla każdej kolumny określamy V+j (najwyższą wartość) oraz V-j (najniższą wartość) i na ich podstawie obliczamy odległość euklidesową.
+
+![image](https://github.com/user-attachments/assets/072b3798-6a68-4dc1-9b23-4d1ce63efaa5)
+
+Oraz obliczamy *Performance Score*
+
+![image](https://github.com/user-attachments/assets/116f05ec-a8c9-45c3-9e6d-e88d2b840d7c)
+
+
+| Attribute Or Criteria | Price or Cost | Storage Space | Camera | Looks | S₍⁺ | S₍⁻ | Pi |
+|----------------------|---------------|---------------|--------|-------|-----|-----| -----|
+| Mobile 1 | 0.1107 | 0.0754 | 0.1071 | 0.1494 | 0.0863 | 0.0990 | 0,534269 |
+| Mobile 2 | 0.0886 | 0.0754 | 0.0714 | 0.0896 | 0.1198 | 0.0534 | 0,308314 |
+| Mobile 3 | 0.1328 | 0.1508 | 0.1429 | 0.1195 | 0.0534 | 0.1198 | 0,691686 |
+| Mobile 4 | 0.1218 | 0.1508 | 0.0714 | 0.1195 | 0.0842 | 0.0968 | 0,534807 |
+| Mobile 5 | 0.0996 | 0.0754 | 0.1429 | 0.0598 | 0.1176 | 0.0788 | 0,401222 |
+| V⁺ⱼ | 0.0886 | 0.1508 | 0.1429 | 0.1494 | | |
+| V⁻ⱼ | 0.1328 | 0.0754 | 0.0714 | 0.0598 | | |
+
+
 
 
 Wykorzystanie AHP do ustalenia wag w kategoriach
