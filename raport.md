@@ -116,7 +116,7 @@ Oraz obliczamy *Performance Score*
 | V⁺ⱼ | 0.0886 | 0.1508 | 0.1429 | 0.1494 | | |
 | V⁻ⱼ | 0.1328 | 0.0754 | 0.0714 | 0.0598 | | |
 
-
+Po tych obliczeniach możemy posortować nasze alternatywy po *Performance score* i otrzymać najlepszy wybór. 
 
 
 Wykorzystanie AHP do ustalenia wag w kategoriach
