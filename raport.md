@@ -10,54 +10,55 @@ Na rynku dostępne są następujące systemu operacyje:
 W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie wartości (0-9) dla każdej kategorii. To jaka wartość została nadana zależy od benchmarków, oceny własnej lub wypowiedzi użytkowników serwisów tematycznych. Każdej z kategorii przy pomocy metody AHP (Analytic Hierarchy Process) przypisano odpowiednią wagę. Następnie wykorzystaliśmy metodę TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) by wyłonić najlepszy system.
 # Model 
 ### AHP (Analytic Hierarchy Process):
-**1) Decyzja zostaje rozbita na hierarchię składającą się z:**
+** Decyzja zostaje rozbita na hierarchię składającą się z:**
 - celu głównego, w naszym przypadku wybrania najlepszego systemu operacyjnego
 - kryteriów, przedstawionych w poniższej tabeli
 - podkryteriów (opcjonalne)
 - alternatyw (kandydatów)
 
-**2) Porównanie kryteriów.**
+**Skala Saaty'ego**
 Zapisane w tablicy kryteria porównujemy parami przypisyjąc im znaczenie w skali Saaty'ego. 
 * 1: równie ważne
 * 3: umiarkowanie ważniejsze
 * 5: zdecydowanie ważniejsze
 * 7: bardzo silnie ważniejsze
 * 9: absolutnie ważniejsze
-Oto przykład tego kroku dla wyboru telewizora.
+Oto działanie AHP, krok po kroku. 
  
-|               | Cena | Rozmiar | Rozdzielczość |                  
+|    Kryteria   | Koszt | Wydajność | Stabilność |                  
 |---------------|------|---------|---------------|
-| Cena          |   1  |    3    |       7       |
-| Rozmiar       |  1/3 |    1    |       5       |
-| Rozdzielczość |  1/7 |   1/5   |       1       |
+| Koszt          |   1  |    4    |       2       |
+| Wydajność       |  1/4 |    1    |       1/3       |
+| Stabilność |  1/2 |   3   |       1       |
 
-Dla osoby wybierającej telewizor *rozmiar* jest zdecydowanie ważniejszy niż *rozdzielczość*, więc w pole rozmiar/rozdzilczość wpisujemy 5, a w pole odwrotne - odwrotność liczby 5.
+Dla osoby wybierającej system *koszt* jest umiarkowanie ważniejszy niż *wydajność*, więc w pole koszt/wydajność wpisujemy 3, a w pole odwrotne - odwrotność liczby 3.
 Następnie liczby ułamkowe zostają przekonwertowane na liczby dziesiętne a dla każdej kolumny obliczna jest ich suma. 
 
-|               | Cena | Rozmiar | Rozdzielczość |                  
+|    Kryteria   | Koszt | Wydajność | Stabilność |                    
 |---------------|------|---------|---------------|
-| Cena          |   1  |    3    |       7       |
-| Rozmiar       |  0,3 |    1    |       5       |
-| Rozdzielczość | 0,14 |   0,2   |       1       |
-| Suma          | 1,44 |   4,2   |       13      |
+| Koszt          |   1  |    4    |       2       |
+| Wydajność       |  0,25 |    1    |       0,33       |
+| Stabilność | 0,5 |   3   |       1       |
+| Suma          | 1,75 |   8   |       3,3      |
 
-Każdy z elementów tabeli jest dzielony przez sumę swojej kolumny, a następnie obliczana jest średnia dla każdego rzędu.
+Każdy z elementów tabeli jest dzielony przez sumę swojej kolumny, a następnie obliczana jest średnia dla każdego rzędu, która jest naszą wagą.
 
-|               | Cena | Rozmiar | Rozdzielczość |  Waga |                
+
+|    Kryteria   | Koszt | Wydajność | Stabilność |    Waga |               
 |---------------|------|---------|---------------|-------|
-| Cena          |   1  |    3    |       7       | 3,67 |
-| Rozmiar       |  0,3 |    1    |       5       | 2,11 |
-| Rozdzielczość | 0,14 |   0,2   |       1       | 0,45 |
-| Suma          | 1,44 |   4,2   |       13      |
+| Koszt          |   0,57  |    0,5  |       0,6       | 0,56 |
+| Wydajność       |  0,14 |   0,13    |       0,1       | 1,22 |
+| Stabilność | 0,29 |   0,38   |       0,3       | 0,32 |
 
 W kolejnym kroku mnożymy wartości komórek razy wagę i sumujemy wiersze.
 
-|               | Cena        | Rozmiar    | Rozdzielczość |  Suma  |             
+
+|    Kryteria   | Koszt | Wydajność | Stabilność |           Suma |    Suma / Waga
 |---------------|-------------|------------|---------------|--------|
-| Waga          | 3,67        | 2,11       |     0,45      |     |
-| Cena          | 1 * 3,67    | 3 * 2,11   |      7 * 0,45 |   13,1   |
-| Rozmiar       | 0,3 * 3,67  | 1 * 2,11   |      5 * 0,45 |     5,6  |
-| Rozdzielczość | 0,14 * 3,67 | 0,2 * 2,11 |       1 * 0,45|    1,4  |
+| Waga | 0,56 | 1,22 | 0,32 |  |
+| Koszt          | 0,57 * 0,56        | 0,13 * 1,22        |     0,6 * 0,32     | 1,03    |
+| Wydajność       | 0,14 * 0,56  | 1 * 1,22   |       0,1 * 0,32 |     1,04  |
+| Stabilność | 0,29 * 0,56 | 0,38  * 1,22 |        0,3 * 0,32|   0,94   |
 
 Następnie obliczamy *Consistency Index* (C.I.). 
 ![image](https://github.com/user-attachments/assets/ec153b32-734f-4bdc-b58d-f60d25fdef31)
@@ -75,26 +76,24 @@ Tablica Random Index
 Jeśli CR jest mniejsze od 0.1, możemy założyć, że nasza macierz jest spójna.
 
 ### TOPSIS
-Metoda do podejmowania decyzji wielokryterialnych bez potrzeby ręcznego oceniania kryteriów. Oto przykład dla telefonów komórkowych.
-|Atrybut | Cena |Pamięć | Kamera | Wygląd |
-|------------------------|---------------|----------------|--------|--------|
-| **Telefon 1**           | 250 $         | 16 GB          | 12 MP  | 5      |
-| **Telefon 2**           | 200 $         | 16 GB          | 8 MP   | 3      |
-| **Telefon 3**           | 300 $         | 32 GB          | 16 MP  | 4      |
-| **Telefon 4**           | 275 $         | 32 GB          | 8 MP   | 4      |
-| **Telefon 5**           | 225 $         | 16 GB          | 16 MP  | 2      |
-| **Σ X^2**           | **564.579**   | **53.0659**    | **28** | **8.3666** |
+|Atrybut | Koszt |Wydajność | Stabilność | 
+|------------------------|---------------|----------------|--------|
+| Ubuntu          |    9      | 7          |6  | 
+| Fedora         | 9    | 5        | 8 | 
+| Windows         | 4    | 6          | 9 | 
+| macOS         |  4        | 3          | 7  |
+| **Σ X^2**           | **194**   | **119**    | **77** |
 
-By otrzymać znormalizowaną macierz decyzji, dzielimy wartości pól przez sumy ich kolumn.
+By otrzymać znormalizowaną macierz decyzji, dzielimy wartości pól przez sumy ich kolumn. Następnie mnożymy razy wagi. 
 
-|Atrybut | Cena |Pamięć | Kamera | Wygląd |
-|------------------------|---------------|----------------|--------|--------|
-| Waga | 0,25  | 0,25  | 0,25 | 0,25 |
-| **Telefon 1**           | 0,4428 * Waga         | 0,3015 * Waga         | 0,4286 * Waga  | 0,5976 * Waga     |
-| **Telefon 2**           | 0,3542 * Waga         | 0,3015 * Waga  | 0,2857 * Waga   | 0,3586 * Waga  |
-| **Telefon 3**           | 0,5314 * Waga     | 0,6030 * Waga  | 0,5714 * Waga  | 0,4781 * Waga |
-| **Telefon 4**           | 0,4871 * Waga   | 0,6030 * Waga          | 0,2857 * Waga |  0,4781 * Waga     |
-| **Telefon 5**           | 0,3985 * Waga    | 0,3015 * Waga        | 0,5714 * Waga  | 0,2390 * Waga   |
+|Atrybut |  Koszt |Wydajność | Stabilność | 
+|------------------------|---------------|----------------|--------|
+| Waga | 0,33  | 0,33  | 0,33 | 
+| Ubuntu         | 9 / Σ X^2 * Waga         | 7 / Σ X^2 * Waga         | 6 / Σ X^2 * Waga  | 
+| Fedora           | 9 / Σ X^2 * Waga         | 5 / Σ X^2 * Waga  | 8 / Σ X^2 * Waga   | 
+| Windows          | 4 / Σ X^2 * Waga     | 6 / Σ X^2 * Waga  | 9 / Σ X^2 * Waga  | 
+| macOS          |  4 / Σ X^2 * Waga   | 3 / Σ X^2 * Waga          | 7 / Σ X^2 * Waga |  
+
 
 W ten sposób otrzymujemy znormalizowaną, ważoną macierz decyzji, dla każdej kolumny określamy V+j (najwyższą wartość) oraz V-j (najniższą wartość) i na ich podstawie obliczamy odległość euklidesową.
 
@@ -105,15 +104,15 @@ Oraz obliczamy *Performance Score*
 ![image](https://github.com/user-attachments/assets/116f05ec-a8c9-45c3-9e6d-e88d2b840d7c)
 
 
-| Attribute Or Criteria | Price or Cost | Storage Space | Camera | Looks | S₍⁺ | S₍⁻ | Pi |
-|----------------------|---------------|---------------|--------|-------|-----|-----| -----|
-| Mobile 1 | 0.1107 | 0.0754 | 0.1071 | 0.1494 | 0.0863 | 0.0990 | 0,534269 |
-| Mobile 2 | 0.0886 | 0.0754 | 0.0714 | 0.0896 | 0.1198 | 0.0534 | 0,308314 |
-| Mobile 3 | 0.1328 | 0.1508 | 0.1429 | 0.1195 | 0.0534 | 0.1198 | 0,691686 |
-| Mobile 4 | 0.1218 | 0.1508 | 0.0714 | 0.1195 | 0.0842 | 0.0968 | 0,534807 |
-| Mobile 5 | 0.0996 | 0.0754 | 0.1429 | 0.0598 | 0.1176 | 0.0788 | 0,401222 |
-| V⁺ⱼ | 0.0886 | 0.1508 | 0.1429 | 0.1494 | | |
-| V⁻ⱼ | 0.1328 | 0.0754 | 0.0714 | 0.0598 | | |
+|Atrybut |  Koszt |Wydajność | Stabilność |  S₍⁺ | S₍⁻ | Pi |
+|---------|-------|----------|------------|------|-----|-----| 
+| Ubuntu  | 0.015309| 0.019412| 0.025714| 0       | 0.018992| 0.018992| 1       |        
+| Fedora  | 0.015309| 0.013866| 0.012857| 0.014002| 0.010154| 0.024156| 0.420338|    
+| Windows     | 0.006804| 0.016639| 0.017143| 0.012389| 0.009358| 0.021748| 0.430313|         
+| macOS     | 0.006804| 0.008319| 0.017143| 0.016397| 0.004286| 0.020682| 0.207216|         
+| V⁺ⱼ     | 0.015309| 0.019412| 0.025714|         |         |         |         |         
+| V⁻ⱼ     | 0.006804| 0.008319| 0.012857|         |         |         |         |         
+
 
 Po tych obliczeniach możemy posortować nasze alternatywy po *Performance score* i otrzymać najlepszy wybór. 
 
