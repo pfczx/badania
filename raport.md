@@ -33,8 +33,32 @@ Oto przykład tego kroku dla wyboru telewizora.
 | Rozdzielczość |  1/7 |   1/5   |       1       |
 
 Dla osoby wybierającej telewizor *rozmiar* jest zdecydowanie ważniejszy niż *rozdzielczość*, więc w pole rozmiar/rozdzilczość wpisujemy 5, a w pole odwrotne - odwrotność liczby 5.
+Następnie liczby ułamkowe zostają przekonwertowane na liczby dziesiętne a dla każdej kolumny obliczna jest ich suma. 
 
+|               | Cena | Rozmiar | Rozdzielczość |                  
+|---------------|------|---------|---------------|
+| Cena          |   1  |    3    |       7       |
+| Rozmiar       |  0,3 |    1    |       5       |
+| Rozdzielczość | 0,14 |   0,2   |       1       |
+| Suma          | 1,44 |   4,2   |       13      |
 
+Każdy z elementów tabeli jest dzielony przez sumę swojej kolumny, a następnie obliczana jest średnia dla każdego rzędu.
+
+|               | Cena | Rozmiar | Rozdzielczość |  Waga |                
+|---------------|------|---------|---------------|-------|
+| Cena          |   1  |    3    |       7       | 3,67 |
+| Rozmiar       |  0,3 |    1    |       5       | 2,11 |
+| Rozdzielczość | 0,14 |   0,2   |       1       | 0,45 |
+| Suma          | 1,44 |   4,2   |       13      |
+
+W kolejnym kroku mnożymy wartości komórek razy wagę i sumujemy wiersze.
+
+|               | Cena        | Rozmiar    | Rozdzielczość |  Suma  |             
+|---------------|-------------|------------|---------------|--------|
+| Waga          | 3,67        | 2,11       |     0,45      |     |
+| Cena          | 1 * 3,67    | 3 * 2,11   |      7 * 0,45 |   13,1   |
+| Rozmiar       | 0,3 * 3,67  | 1 * 2,11   |      5 * 0,45 |     5,6  |
+| Rozdzielczość | 0,14 * 3,67 | 0,2 * 2,11 |       1 * 0,45|    1,4  |
 
 
 Wykorzystanie AHP do ustalenia wag w kategoriach
