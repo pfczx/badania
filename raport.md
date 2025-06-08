@@ -75,6 +75,19 @@ Tablica Random Index
 
 Jeśli CR jest mniejsze od 0.1, możemy założyć, że nasza macierz jest spójna.
 
+### TOPSIS
+Metoda do podejmowania decyzji wielokryterialnych bez potrzeby ręcznego oceniania kryteriów. Oto przykład dla telefonów komórkowych.
+|Atrybut | Cena |Pamięć | Kamera | Wygląd |
+|------------------------|---------------|----------------|--------|--------|
+| **Telefon 1**           | 250 $         | 16 GB          | 12 MP  | 5      |
+| **Telefon 2**           | 200 $         | 16 GB          | 8 MP   | 3      |
+| **Telefon 3**           | 300 $         | 32 GB          | 16 MP  | 4      |
+| **Telefon 4**           | 275 $         | 32 GB          | 8 MP   | 4      |
+| **Telefon 5**           | 225 $         | 16 GB          | 16 MP  | 2      |
+| **Σ (suma)**           | **564.579**   | **53.0659**    | **28** | **8.3666** |
+
+
+
 
 Wykorzystanie AHP do ustalenia wag w kategoriach
 ```r
