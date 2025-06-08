@@ -10,6 +10,29 @@ Na rynku dostępne są następujące systemu operacyje:
 W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie wartości (0-9) dla każdej kategorii. To jaka wartość została nadana zależy od benchmarków, oceny własnej lub wypowiedzi użytkowników serwisów tematycznych. Każdej z kategorii przy pomocy metody AHP (Analytic Hierarchy Process) przypisano odpowiednią wagę. Następnie wykorzystaliśmy metodę TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) by wyłonić najlepszy system.
 # Model 
 #opisac ten model formalny cos jak f-> min itd tak jak na zajeciach, opisac ahp i topsisa na naszych danych
+### AHP (Analytic Hierarchy Process):
+**1) Decyzja zostaje rozbita na hierarchię składającą się z:**
+- celu głównego, w naszym przypadku wybrania najlepszego systemu operacyjnego
+- kryteriów, przedstawionych w poniższej tabeli
+- podkryteriów (opcjonalne)
+- alternatyw (kandydatów)
+
+**2) Porównanie kryteriów.**
+Zapisane w tablicy kryteria porównujemy parami przypisyjąc im znaczenie w skali Saaty'ego. 
+* 1: równie ważne
+* 3: umiarkowanie ważniejsze
+* 5: zdecydowanie ważniejsze
+* 7: bardzo silnie ważniejsze
+* 9: absolutnie ważniejsze
+Oto przykład tego kroku dla wyboru telewizora. 
+|       | Cena | Rozmiar | Rozdzielczość |                  
+|-------|-----------|-----------|-----------|
+| Cena |   1      |   3      |   7      |
+| Rozmiar |   1/3      |   1 |   5      |
+| Rozdzielczość |   1/7      |   1/5      |   1      |
+Dla osoby wybierającej telewizor *rozmiar* jest zdecydowanie ważniejszy niż *rozdzielczość*, więc w pole rozmiar/rozdzilczość wpisujemy 5, a w pole odwrotne - odwrotność liczby 5.
+
+
 
 
 Wykorzystanie AHP do ustalenia wag w kategoriach
