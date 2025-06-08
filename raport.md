@@ -84,9 +84,18 @@ Metoda do podejmowania decyzji wielokryterialnych bez potrzeby ręcznego ocenian
 | **Telefon 3**           | 300 $         | 32 GB          | 16 MP  | 4      |
 | **Telefon 4**           | 275 $         | 32 GB          | 8 MP   | 4      |
 | **Telefon 5**           | 225 $         | 16 GB          | 16 MP  | 2      |
-| **Σ (suma)**           | **564.579**   | **53.0659**    | **28** | **8.3666** |
+| **Σ X^2**           | **564.579**   | **53.0659**    | **28** | **8.3666** |
 
+By otrzymać znormalizowaną macierz decyzji, dzielimy wartości pól przez sumy ich kolumn.
 
+|Atrybut | Cena |Pamięć | Kamera | Wygląd |
+|------------------------|---------------|----------------|--------|--------|
+| Waga | 0,25  | 0,25  | 0,25 | 0,25 |
+| **Telefon 1**           | 0,4428 * Waga         | 0,3015 * Waga         | 0,4286 * Waga  | 0,5976 * Waga     |
+| **Telefon 2**           | 0,3542 * Waga         | 0,3015 * Waga  | 0,2857 * Waga   | 0,3586 * Waga  |
+| **Telefon 3**           | 0,5314 * Waga     | 0,6030 * Waga  | 0,5714 * Waga  | 0,4781 * Waga |
+| **Telefon 4**           | 0,4871 * Waga   | 0,6030 * Waga          | 0,2857 * Waga |  0,4781 * Waga     |
+| **Telefon 5**           | 0,3985 * Waga    | 0,3015 * Waga        | 0,5714 * Waga  | 0,2390 * Waga   |
 
 
 Wykorzystanie AHP do ustalenia wag w kategoriach
