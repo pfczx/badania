@@ -60,6 +60,21 @@ W kolejnym kroku mnożymy wartości komórek razy wagę i sumujemy wiersze.
 | Rozmiar       | 0,3 * 3,67  | 1 * 2,11   |      5 * 0,45 |     5,6  |
 | Rozdzielczość | 0,14 * 3,67 | 0,2 * 2,11 |       1 * 0,45|    1,4  |
 
+Następnie obliczamy *Consistency Index* (C.I.). 
+CI = λmax - n / n - 1
+gdzie
+λmax to średnia wartości **Suma * Waga** każdego wiersza, a **n** to liczba kryteriów. 
+
+Consistency Ratio = CI/RI (Random Index)
+
+Tablica Random Index
+
+| n   | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   |
+|-----|------|------|------|------|------|------|------|------|------|------|
+| RI  | 0.00 | 0.00 | 0.58 | 0.90 | 1.12 | 1.24 | 1.32 | 1.41 | 1.45 | 1.49 |
+
+Jeśli CR jest mniejsze od 0.1, możemy założyć, że nasza macierz jest spójna.
+
 
 Wykorzystanie AHP do ustalenia wag w kategoriach
 ```r
