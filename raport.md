@@ -9,7 +9,6 @@ Na rynku dostępne są następujące systemu operacyje:
 # Metodyki
 W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie wartości (0-9) dla każdej kategorii. To jaka wartość została nadana zależy od benchmarków, oceny własnej lub wypowiedzi użytkowników serwisów tematycznych. Każdej z kategorii przy pomocy metody AHP (Analytic Hierarchy Process) przypisano odpowiednią wagę. Następnie wykorzystaliśmy metodę TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) by wyłonić najlepszy system.
 # Model 
-#opisac ten model formalny cos jak f-> min itd tak jak na zajeciach, opisac ahp i topsisa na naszych danych
 ### AHP (Analytic Hierarchy Process):
 **1) Decyzja zostaje rozbita na hierarchię składającą się z:**
 - celu głównego, w naszym przypadku wybrania najlepszego systemu operacyjnego
