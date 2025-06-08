@@ -114,7 +114,7 @@ Oraz obliczamy *Performance Score*
 | V⁻ⱼ     | 0.006804| 0.008319| 0.012857|         |         |         |         |         
 
 
-Po tych obliczeniach możemy posortować nasze alternatywy po *Performance score* i otrzymać najlepszy wybór. 
+Po tych obliczeniach możemy posortować nasze alternatywy po *Performance score* i otrzymać najlepszy wybór. Jak widać ograniczając się do 3 kryteriów, Ubuntu deklasuje inne opcje. 
 
 
 Wykorzystanie AHP do ustalenia wag w kategoriach
