@@ -17,7 +17,7 @@ Rozważane są cztery możliwe systemy operacyjne:
 Każda alternatywa zostanie oceniona względem następujących kryteriów:
 
  Kryterium                | Opis |
---------------------------|--------------|------|
+--------------------------|--------------------|
  Stabilność               | Odporność systemu na awarie, stabilność działania w czasie. |
  Wydajność                 | Efektywność działania na sprzęcie studenckim, zarządzanie zasobami. |
  Bezpieczeństwo           |  Wbudowane mechanizmy ochrony danych i systemu przed zagrożeniami. |
