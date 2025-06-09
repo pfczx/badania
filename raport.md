@@ -366,10 +366,23 @@ Na podstawie analizy TOPSIS uzyskaliśmy następujące wyniki:
 Na podstawie analizy metodą TOPSIS, systemy Ubuntu i Fedora uzyskały najwyższe oceny, co wskazuje na ich wysoką ogólną jakość w kontekście zdefiniowanych kryteriów. Ubuntu osiągnęło najwyższy wynik , wyprzedzając Fedorę  jedynie nieznacznie, co oznacza, że oba systemy oferują bardzo zbliżony poziom atrakcyjności. Windows uplasował się na trzecim miejscu, głównie dzięki dobremu wynikowi w łatwości obsługi oraz kompatybilności. MacOS uzyskał najniższy wynik, co może wynikać z jego relatywnie wysokiego kosztu oraz ograniczonej możliwości personalizacji. Warto zauważyć, że najwyższe wagi przypisano kryteriom stabilności i narzędzi deweloperskich, w których zarówno Ubuntu, jak i Fedora uzyskały bardzo dobre oceny. Ostateczny ranking potwierdza, że systemy open-source — szczególnie Ubuntu — najlepiej spełniają potrzeby studenta informatyki przy uwzględnieniu najistotniejszych kryteriów decyzyjnych.
 
 # Analiza wrażliwości
-#dodac analize wlsciwosci i opisac ja dokladnie z radami dla decydenta jesli np potrzbuje czegos innego troche itd policzyc ale nie wklejac juz wiecej kodu do prezentacji dorobic to w r
 
-#dodac jakies rzeczy ktorych moglem zapomniec 
-#upiekszyc dodac np zdjecia czy zrzut ekranu systemow podopisywac cos ewentualnie
+Przeanalizowaliśmy wrażliwość wyników na zmiany wag trzech kluczowych kryteriów: Bezpieczeństwo, Łatwość obsługi i Wydajność.
+
+Ubuntu i Fedora utrzymują przewagę przy wszystkich wartościach wagi, macOS i Windows są wyraźnie słabsze w badanym kryterium. 
+#upieks![Bezpieczenstwo](https://github.com/user-attachments/assets/d3cfd521-23bd-480c-bd2d-83bdccf0bd90)
+
+Windows ma najlepsze wyniki w tym kryterium, przy dużym zwiększeniu wagi, Windows może zbliżyć się do liderów.
+![Wydajnosc](https://github.com/user-attachments/assets/a56ae617-deaf-40a2-8ced-2a9625b6f5ff)
+
+Fedora wyraźnie zyskuje przy zwiększeniu wagi wydajności. Ubuntu pozostaje konkurencyjne, ale traci część przewagi.
+![Latwosc_Obslugi](https://github.com/user-attachments/assets/88c7022b-f35e-4608-b64a-edb0374de138)
+
+#Rekomendacje dla decydenta
+Dla użytkowników potrzebujących stabilności i bezpieczeństwa Ubuntu i Fedora będą najlepszym wyborem. (Ubuntu ma lekką przewagę w stabilności, Fedora w wydajności)
+Dla użytkowników potrzebujących łatwej obsługi systemu najlepszym wyborem będzie Windows.
+Dla użytkowników wymagających wysokiej wydajności Fedora staje się najlepszym wyborem.
+macOS średnio wypada w większości kryteriów.
 
 # Źródła
 https://go.lightnode.com/tech/linux-fedora-vs-ubuntu
