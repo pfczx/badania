@@ -1,15 +1,7 @@
-﻿# Wprowadzenie
-Projekt przedstawia problem wielokryterialny jakim jest wybór systemu operacyjnego dla studenta informatyki. Odpowiednio dobrany system operacyjny stanowi solidny fundament do zbudowania odpowiedniej wiedzy i umiejętności informatyka. Warto zaznaczyć, że powinno zapoznać się z podstawowymi funkcjonalnościami każdego z nich, ale zazwyczaj bazuje się na jednym. Systemy, które będą porównywane w badaniu znacznie różnią się tym co oferują swoim użytkownikom, tym bardziej ważne jest by znaleźć  te cechy, które pozwolą na opis każdego. Nasz zespół wybrał 10 kryteriów spośród wielu by przypisać badanym systemom wartości możliwe do porównania.
 # Opis problemu
-## 1. Wprowadzenie
+Projekt przedstawia problem wielokryterialny jakim jest wybór systemu operacyjnego dla studenta informatyki. Odpowiednio dobrany system operacyjny stanowi solidny fundament do zbudowania odpowiedniej wiedzy i umiejętności informatyka. Warto zaznaczyć, że powinno zapoznać się z podstawowymi funkcjonalnościami każdego z nich, ale zazwyczaj bazuje się na jednym. Systemy, które będą porównywane w badaniu znacznie różnią się tym co oferują swoim użytkownikom, tym bardziej ważne jest by znaleźć  te cechy, które pozwolą na opis każdego. Nasz zespół wybrał 10 kryteriów spośród wielu by przypisać badanym systemom wartości możliwe do porównania.
 
-Student informatyki podejmuje decyzję dotyczącą wyboru systemu operacyjnego, który będzie stanowił jego główne środowisko pracy w czasie studiów. Decyzja ta ma wpływ na codzienną efektywność, możliwość korzystania z odpowiednich narzędzi, rozwój kompetencji technicznych oraz kompatybilność z wymaganiami dydaktycznymi.
-
-Z punktu widzenia **badań operacyjnych** jest to typowy **problem wielokryterialnego podejmowania decyzji** (ang. *Multi-Criteria Decision Analysis*, MCDA), w którym należy ocenić kilka możliwych wariantów względem wielu, często konkurencyjnych, kryteriów.
-
----
-
-## 2. Alternatywy decyzyjne
+# Alternatywy decyzyjne
 
 Rozważane są cztery możliwe systemy operacyjne:
 
@@ -18,30 +10,30 @@ Rozważane są cztery możliwe systemy operacyjne:
 - **Windows** – system firmy Microsoft, powszechnie wykorzystywany w edukacji i przemyśle.
 - **macOS** – system operacyjny Apple, używany głównie na sprzęcie Mac, ceniony za stabilność i środowisko programistyczne dla iOS/macOS.
 
----
 
-## 3. Kryteria oceny alternatyw
 
-Każda alternatywa zostanie oceniona względem następujących **dziesięciu kryteriów**:
+# Kryteria oceny alternatyw
 
-| Symbol    | Kryterium                | Typ          | Opis |
-|-----------|--------------------------|--------------|------|
-| K1        | Stabilność               | Jakościowe   | Odporność systemu na awarie, stabilność działania w czasie. |
-| K2        | Wydajność                | Jakościowe   | Efektywność działania na sprzęcie studenckim, zarządzanie zasobami. |
-| K3        | Bezpieczeństwo           | Jakościowe   | Wbudowane mechanizmy ochrony danych i systemu przed zagrożeniami. |
-| K4        | Łatwość obsługi          | Jakościowe   | Intuicyjność interfejsu i niski próg wejścia. |
-| K5        | Oprogramowanie           | Jakościowe   | Dostępność aplikacji edukacyjnych, użytkowych i specjalistycznych. |
-| K6        | Narzędzia programistyczne| Jakościowe   | Dostępność kompilatorów, edytorów, środowisk IDE i bibliotek. |
-| K7        | Społeczność i wsparcie   | Jakościowe   | Dostępność forów, dokumentacji, tutoriali, aktywność społeczności. |
-| K8        | Kompatybilność           | Jakościowe   | Możliwość współpracy z innymi systemami, sprzętem i platformami. |
-| K9        | Koszt                    | Ilościowe    | Całkowity koszt systemu i sprzętu wymaganego do jego uruchomienia. |
-| K10       | Personalizacja           | Jakościowe   | Możliwość modyfikacji systemu pod własne potrzeby. |
+Każda alternatywa zostanie oceniona względem następujących kryteriów:
 
----
+ Kryterium                | Opis |
+--------------------------|--------------|------|
+ Stabilność               | Odporność systemu na awarie, stabilność działania w czasie. |
+ Wydajność                 | Efektywność działania na sprzęcie studenckim, zarządzanie zasobami. |
+ Bezpieczeństwo           |  Wbudowane mechanizmy ochrony danych i systemu przed zagrożeniami. |
+ Łatwość obsługi          |  Intuicyjność interfejsu i niski próg wejścia. |
+ Oprogramowanie           |  Dostępność aplikacji użytkowych i pakietów biurowych. |
+ Narzędzia programistyczne|  Dostępność specyficznych narzędzi programistycznych. |
+ Społeczność i wsparcie   |  Dostępność forów, dokumentacji, tutoriali, aktywność społeczności. |
+ Kompatybilność           |  Możliwość współpracy z innymi systemami, sprzętem i platformami. |
+ Koszt                    |  Całkowity koszt systemu i sprzętu wymaganego do jego uruchomienia. |
+ Personalizacja           |  Możliwość modyfikacji systemu pod własne potrzeby. |
 
-## 4. Cel decyzyjny i model problemu
 
-Celem decydenta (studenta informatyki) jest **wybranie takiego systemu operacyjnego**, który najlepiej spełnia jego oczekiwania względem powyższych kryteriów.
+
+# Cel decyzyjny i model problemu
+
+Celem decydenta (studenta informatyki) jest wybranie takiego systemu operacyjnego, który najlepiej spełnia jego oczekiwania względem powyższych kryteriów.
 
 Formalizacja:
 
@@ -50,35 +42,20 @@ Formalizacja:
 
 Dla każdej alternatywy `Ai` wyznaczamy wektor ocen `(k_i1, k_i2, ..., k_i10)`.
 
-### Funkcja oceny (metoda wagowa)
+ Funkcja oceny (metoda wagowa)
 
 ```math
 U(A_i) = ∑(w_j * k_ij)
 ```
 Gdzie:
 
-- \( w_j \) – waga przypisana kryterium \( K_j \), wyrażająca jego względną ważność,
-- \( k_{ij} \) – ocena alternatywy \( A_i \) względem kryterium \( K_j \),
-- \( U(A_i) \) – suma ważona ocen dla alternatywy \( A_i \).
+- ` w_j ` – waga przypisana kryterium ` K_j `, wyrażająca jego względną ważność,
+- ` k_{ij} `– ocena alternatywy ` A_i ` względem kryterium ` K_j `,
+- ` U(A_i) ` – suma ważona ocen dla alternatywy `A_i `.
 
-Alternatywa, która uzyska najwyższy wynik \( U(A_i) \), powinna zostać wybrana jako optymalna.
+Alternatywa, która uzyska najwyższy wynik ` U(A_i) `, powinna zostać wybrana jako optymalna.
 
----
-
-## 5. Propozycja metod rozwiązania
-
-W zależności od dostępnych danych oraz oczekiwanego poziomu dokładności, problem może zostać rozwiązany za pomocą jednej z następujących metod wielokryterialnych:
-
-- **Metoda sumy ważonej (WSM)** – intuicyjna i łatwa do implementacji,
-- **Metoda AHP (Analytic Hierarchy Process)** – umożliwia hierarchiczne porównania i ocenę względnej ważności,
-- **Metoda TOPSIS** – wybiera alternatywę najbliższą ideałowi i najdalszą od antyideału,
-- **Metoda PROMETHEE/ELECTRE** – preferencyjne metody klasyfikacji i rankingowania alternatyw.
-
-Wybór konkretnej metody zależy od celu analizy, ilości danych oraz oczekiwanej transparentności wyniku.
-
----
-
-## 6. Założenia problemu
+# Założenia problemu
 
 W analizie przyjmuje się następujące założenia:
 
@@ -87,9 +64,9 @@ W analizie przyjmuje się następujące założenia:
 - Preferencje decydenta można odwzorować poprzez przypisanie wag kryteriom.
 - Kryteria są wzajemnie niezależne, rozłączne i kompletne.
 
----
 
-## 7. Możliwe rozszerzenia problemu
+
+# Możliwe rozszerzenia problemu
 
 Problem decyzyjny można rozszerzyć o dodatkowe aspekty:
 
@@ -98,27 +75,12 @@ Problem decyzyjny można rozszerzyć o dodatkowe aspekty:
 - **Sprzętowe ograniczenia użytkownika** (RAM, CPU, dysk, dostępność komputera Mac),
 - **Dynamika technologiczna** – aktualizacje, nowe wersje, zmieniające się potrzeby użytkownika.
 
----
-
-## 8. Podsumowanie
-
-Wybór systemu operacyjnego przez studenta informatyki to klasyczny problem decyzyjny z wieloma kryteriami. Wymaga on uwzględnienia zarówno aspektów technicznych, jak i subiektywnych preferencji użytkownika.
-
-Zastosowanie metod badań operacyjnych, takich jak analiza wielokryterialna, pozwala na:
-
-- Systematyczne podejście do podejmowania decyzji,
-- Ocenę dostępnych opcji w sposób obiektywny,
-- Dobór rozwiązania najlepiej dopasowanego do indywidualnych potrzeb użytkownika.
-
-Dzięki temu student może świadomie wybrać środowisko pracy, które będzie wspierać jego rozwój akademicki i zawodowy przez cały okres studiów.
-
-
 
 # Metodyki
-W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie wartości (0-9) dla każdej kategorii. To jaka wartość została nadana zależy od benchmarków, oceny własnej lub wypowiedzi użytkowników serwisów tematycznych. Każdej z kategorii przy pomocy metody AHP (Analytic Hierarchy Process) przypisano odpowiednią wagę. Następnie wykorzystaliśmy metodę TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) by wyłonić najlepszy system.
-# Model 
+W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie wartości (1-9) dla każdej kategorii. To jaka wartość została nadana zależy od benchmarków, oceny własnej lub wypowiedzi użytkowników serwisów tematycznych. Każdej z kategorii przy pomocy metody AHP (Analytic Hierarchy Process) przypisano odpowiednią wagę. Następnie wykorzystaliśmy metodę TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) by wyłonić najlepszy system.
+
 ### AHP (Analytic Hierarchy Process):
-** Decyzja zostaje rozbita na hierarchię składającą się z:**
+*Decyzja zostaje rozbita na hierarchię składającą się z:
 - celu głównego, w naszym przypadku wybrania najlepszego systemu operacyjnego
 - kryteriów, przedstawionych w poniższej tabeli
 - podkryteriów (opcjonalne)
@@ -212,7 +174,7 @@ Oraz obliczamy *Performance Score*
 ![image](https://github.com/user-attachments/assets/116f05ec-a8c9-45c3-9e6d-e88d2b840d7c)
 
 
-|Atrybut |  Koszt |Wydajność | Stabilność |  S₍⁺ | S₍⁻ | Pi |
+|Atrybut |  Koszt |Wydajność | Stabilność |  S⁺ | S⁻ | Pi |
 |---------|-------|----------|------------|------|-----|-----| 
 | Ubuntu  | 0.015309| 0.019412| 0.025714| 0       | 0.018992| 0.018992| 1       |        
 | Fedora  | 0.015309| 0.013866| 0.012857| 0.014002| 0.010154| 0.024156| 0.420338|    
