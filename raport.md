@@ -378,7 +378,7 @@ Windows ma najlepsze wyniki w tym kryterium, przy dużym zwiększeniu wagi, Wind
 Fedora wyraźnie zyskuje przy zwiększeniu wagi wydajności. Ubuntu pozostaje konkurencyjne, ale traci część przewagi.
 ![Latwosc_Obslugi](https://github.com/user-attachments/assets/88c7022b-f35e-4608-b64a-edb0374de138)
 
-#Rekomendacje dla decydenta
+# Rekomendacje dla decydenta
 Dla użytkowników potrzebujących stabilności i bezpieczeństwa Ubuntu i Fedora będą najlepszym wyborem. (Ubuntu ma lekką przewagę w stabilności, Fedora w wydajności)
 Dla użytkowników potrzebujących łatwej obsługi systemu najlepszym wyborem będzie Windows.
 Dla użytkowników wymagających wysokiej wydajności Fedora staje się najlepszym wyborem.
