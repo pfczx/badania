@@ -375,7 +375,6 @@ Ubuntu i Fedora utrzymują przewagę przy wszystkich wartościach wagi, macOS i 
 Fedora wyraźnie zyskuje przy zwiększeniu wagi wydajności. Ubuntu pozostaje konkurencyjne, ale traci część przewagi.
 ![Wydajnosc](https://github.com/user-attachments/assets/a56ae617-deaf-40a2-8ced-2a9625b6f5ff)
 # Łatwość Obsługi
-Fedora wyraźnie zyskuje przy zwiększeniu wagi wydajności. Ubuntu pozostaje konkurencyjne, ale traci część przewagi.
 ![Latwosc_Obslugi](https://github.com/user-attachments/assets/88c7022b-f35e-4608-b64a-edb0374de138)
 Windows ma najlepsze wyniki w tym kryterium, przy dużym zwiększeniu wagi, Windows może zbliżyć się do liderów.
 
