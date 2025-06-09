@@ -370,7 +370,7 @@ Na podstawie analizy metodą TOPSIS, systemy Ubuntu i Fedora uzyskały najwyższ
 Przeanalizowaliśmy wrażliwość wyników na zmiany wag trzech kluczowych kryteriów: Bezpieczeństwo, Łatwość obsługi i Wydajność.
 # Bezpieczeństwo
 Ubuntu i Fedora utrzymują przewagę przy wszystkich wartościach wagi, macOS i Windows są wyraźnie słabsze w badanym kryterium. 
-#upieks![Bezpieczenstwo](https://github.com/user-attachments/assets/d3cfd521-23bd-480c-bd2d-83bdccf0bd90)
+![Bezpieczenstwo](https://github.com/user-attachments/assets/d3cfd521-23bd-480c-bd2d-83bdccf0bd90)
 # Wydajność
 Windows ma najlepsze wyniki w tym kryterium, przy dużym zwiększeniu wagi, Windows może zbliżyć się do liderów.
 ![Wydajnosc](https://github.com/user-attachments/assets/a56ae617-deaf-40a2-8ced-2a9625b6f5ff)
