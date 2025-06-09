@@ -382,7 +382,7 @@ Windows i macOS również tracą, ale mniej istotnie – ich pozycje pozostają 
 
 ![Wydajnosc](https://github.com/user-attachments/assets/a56ae617-deaf-40a2-8ced-2a9625b6f5ff)
 # Łatwość Obsługi
-Windows ma najwyższą ocenę w tym kryterium, ale jego końcowy wynik nie rośnie znacząco przy zwiększaniu wagi – dzieje się tak z powodu niskich ocen w innych kryteriach.
+Windows ma najwyższą ocenę w tym kryterium. Zwiększenie wagi jednego kryterium oznacza zmniejszenie względnej wagi pozostałych – to może obniżać końcową pozycję, jeśli system nie jest silny w innych obszarach.
 Ubuntu lekko traci, Fedora zyskuje, macOS rośnie minimalnie.
 
 ![Latwosc_Obslugi](https://github.com/user-attachments/assets/88c7022b-f35e-4608-b64a-edb0374de138)
