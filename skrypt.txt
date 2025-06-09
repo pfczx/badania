@@ -66,5 +66,50 @@ result <- data.frame(
 print(result)
 print(weights$Saaty)
 
+#ANALIZA WRAŻLIWOŚCI
+# Funkcja obliczająca wynik TOPSIS
+calculate_topsis <- function(weights_vec) {
+  weighted_matrix <- norm_matrix * weights_vec
+  ideal_best <- apply(weighted_matrix, 2, max)
+  ideal_worst <- apply(weighted_matrix, 2, min)
+  d_plus <- sqrt(rowSums((weighted_matrix - matrix(ideal_best, nrow=4, ncol=10, byrow=TRUE))^2))
+  d_minus <- sqrt(rowSums((weighted_matrix - matrix(ideal_worst, nrow=4, ncol=10, byrow=TRUE))^2))
+  score <- d_minus / (d_plus + d_minus)
+  return(score)
+}
 
+# Funkcja do analizy wrażliwości
+sensitivity_analysis <- function(index, criterion_name) {
+  original_weight <- weights$weighting[index]
+  sensitivity_range <- seq(0.5, 1.5, by = 0.1) * original_weight
+  result <- data.frame()
+  
+  for (new_weight in sensitivity_range) {
+    modified_weights <- weights$weighting
+    modified_weights[index] <- new_weight
+    modified_weights <- modified_weights / sum(modified_weights)
+    score <- calculate_topsis(modified_weights)
+    
+    result <- rbind(result, data.frame(
+      Kryterium = criterion_name,
+      Zmiana_wagi = round((new_weight / original_weight - 1) * 100),
+      Ubuntu = score[1],
+      Fedora = score[2],
+      Windows = score[3],
+      macOS = score[4]
+    ))
+  }
+  
+  return(result)
+}
 
+# Przeprowadzenie analizy
+sensitivity_bez <- sensitivity_analysis(3, "Bezpieczeństwo")
+sensitivity_obs <- sensitivity_analysis(4, "Łatwość obsługi")
+sensitivity_wyd <- sensitivity_analysis(2, "Wydajność")
+
+# Połączenie wyników
+sensitivity_all <- rbind(sensitivity_bez, sensitivity_obs, sensitivity_wyd)
+
+# Wyświetlenie tabeli
+print(sensitivity_all)
