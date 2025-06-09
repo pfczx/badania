@@ -1,10 +1,118 @@
 ﻿# Wprowadzenie
 Projekt przedstawia problem wielokryterialny jakim jest wybór systemu operacyjnego dla studenta informatyki. Odpowiednio dobrany system operacyjny stanowi solidny fundament do zbudowania odpowiedniej wiedzy i umiejętności informatyka. Warto zaznaczyć, że powinno zapoznać się z podstawowymi funkcjonalnościami każdego z nich, ale zazwyczaj bazuje się na jednym. Systemy, które będą porównywane w badaniu znacznie różnią się tym co oferują swoim użytkownikom, tym bardziej ważne jest by znaleźć  te cechy, które pozwolą na opis każdego. Nasz zespół wybrał 10 kryteriów spośród wielu by przypisać badanym systemom wartości możliwe do porównania.
 # Opis problemu
-Na rynku dostępne są następujące systemu operacyje: 
-- System Windows firmy Microsoft, najbardziej popularny wybór, to na tym systemie ludzie uczą się korzystać z komputera. Stosunkowo intuicyjny, jednak posiadający swoje mankamenty, które zaczynają być zauważane nie tylko przez informatyków, ale także zwyczajnych użytkowników.
-- System macOS firmy Apple, w użytkowaniu podobny do produktu firmy Microsoft, elegancki i intuicyjny. Istotną cechą tego systemu jest fakt, iż przeznaczony jest on tylko i wyłącznie na urządzenia firmy Apple, co zapewnia wysoki poziom integracji sprzętu i oprogramowania. Z powodu ograniczenia dystrybucji tego systemu wielu użytkowników nie może pozwolić sobie na choć przetestowanie tej propozycji.
-- System Linux, a raczej rodzina jego dystrybucji jest przykładem wolnego i otwartego oprogramowania. Jego kod źródłowy jest ogólnodostępny, a system jest darmowy. Każda z dystrubucji systemu jest inna co zapewnia, że każdy konsument znajdzie odpowiednią wersję. Linux oferuje wysoką wydajność, personalizację oraz cenioną przez wielu wolność od korporacji. Wadą tego systemu jest ograniczony dostęp do oprogramowania, jednak z powodu rosnącej społeczności budującej Linux'a pojawiają się nowe rozwiązania poprawiające doświadczenia z korzystania z tego systemu. Z powodu na różnorodność zdecydowaliśmy się na wybranie dwóch dystrybucji - Ubuntu oraz Fedora.
+## 1. Wprowadzenie
+
+Student informatyki podejmuje decyzję dotyczącą wyboru systemu operacyjnego, który będzie stanowił jego główne środowisko pracy w czasie studiów. Decyzja ta ma wpływ na codzienną efektywność, możliwość korzystania z odpowiednich narzędzi, rozwój kompetencji technicznych oraz kompatybilność z wymaganiami dydaktycznymi.
+
+Z punktu widzenia **badań operacyjnych** jest to typowy **problem wielokryterialnego podejmowania decyzji** (ang. *Multi-Criteria Decision Analysis*, MCDA), w którym należy ocenić kilka możliwych wariantów względem wielu, często konkurencyjnych, kryteriów.
+
+---
+
+## 2. Alternatywy decyzyjne
+
+Rozważane są cztery możliwe systemy operacyjne:
+
+- **Ubuntu** – popularna dystrybucja Linuxa oparta na Debianie, znana z łatwości obsługi i szerokiej społeczności.
+- **Fedora** – nowoczesna dystrybucja Linuxa wspierana przez Red Hat, często stosowana do nauki i testowania nowych technologii.
+- **Windows** – system firmy Microsoft, powszechnie wykorzystywany w edukacji i przemyśle.
+- **macOS** – system operacyjny Apple, używany głównie na sprzęcie Mac, ceniony za stabilność i środowisko programistyczne dla iOS/macOS.
+
+---
+
+## 3. Kryteria oceny alternatyw
+
+Każda alternatywa zostanie oceniona względem następujących **dziesięciu kryteriów**:
+
+| Symbol    | Kryterium                | Typ          | Opis |
+|-----------|--------------------------|--------------|------|
+| K1        | Stabilność               | Jakościowe   | Odporność systemu na awarie, stabilność działania w czasie. |
+| K2        | Wydajność                | Jakościowe   | Efektywność działania na sprzęcie studenckim, zarządzanie zasobami. |
+| K3        | Bezpieczeństwo           | Jakościowe   | Wbudowane mechanizmy ochrony danych i systemu przed zagrożeniami. |
+| K4        | Łatwość obsługi          | Jakościowe   | Intuicyjność interfejsu i niski próg wejścia. |
+| K5        | Oprogramowanie           | Jakościowe   | Dostępność aplikacji edukacyjnych, użytkowych i specjalistycznych. |
+| K6        | Narzędzia programistyczne| Jakościowe   | Dostępność kompilatorów, edytorów, środowisk IDE i bibliotek. |
+| K7        | Społeczność i wsparcie   | Jakościowe   | Dostępność forów, dokumentacji, tutoriali, aktywność społeczności. |
+| K8        | Kompatybilność           | Jakościowe   | Możliwość współpracy z innymi systemami, sprzętem i platformami. |
+| K9        | Koszt                    | Ilościowe    | Całkowity koszt systemu i sprzętu wymaganego do jego uruchomienia. |
+| K10       | Personalizacja           | Jakościowe   | Możliwość modyfikacji systemu pod własne potrzeby. |
+
+---
+
+## 4. Cel decyzyjny i model problemu
+
+Celem decydenta (studenta informatyki) jest **wybranie takiego systemu operacyjnego**, który najlepiej spełnia jego oczekiwania względem powyższych kryteriów.
+
+Formalizacja:
+
+- Zbiór alternatyw: `A = {Ubuntu, Fedora, Windows, macOS}`
+- Zbiór kryteriów: `K = {K1, K2, ..., K10}`
+
+Dla każdej alternatywy `Ai` wyznaczamy wektor ocen `(k_i1, k_i2, ..., k_i10)`.
+
+### Funkcja oceny (metoda wagowa)
+
+```math
+U(A_i) = ∑(w_j * k_ij)
+```
+Gdzie:
+
+- \( w_j \) – waga przypisana kryterium \( K_j \), wyrażająca jego względną ważność,
+- \( k_{ij} \) – ocena alternatywy \( A_i \) względem kryterium \( K_j \),
+- \( U(A_i) \) – suma ważona ocen dla alternatywy \( A_i \).
+
+Alternatywa, która uzyska najwyższy wynik \( U(A_i) \), powinna zostać wybrana jako optymalna.
+
+---
+
+## 5. Propozycja metod rozwiązania
+
+W zależności od dostępnych danych oraz oczekiwanego poziomu dokładności, problem może zostać rozwiązany za pomocą jednej z następujących metod wielokryterialnych:
+
+- **Metoda sumy ważonej (WSM)** – intuicyjna i łatwa do implementacji,
+- **Metoda AHP (Analytic Hierarchy Process)** – umożliwia hierarchiczne porównania i ocenę względnej ważności,
+- **Metoda TOPSIS** – wybiera alternatywę najbliższą ideałowi i najdalszą od antyideału,
+- **Metoda PROMETHEE/ELECTRE** – preferencyjne metody klasyfikacji i rankingowania alternatyw.
+
+Wybór konkretnej metody zależy od celu analizy, ilości danych oraz oczekiwanej transparentności wyniku.
+
+---
+
+## 6. Założenia problemu
+
+W analizie przyjmuje się następujące założenia:
+
+- Student potrafi korzystać z każdego z ocenianych systemów operacyjnych.
+- Wszystkie systemy są dostępne dla użytkownika (technicznie możliwe do zainstalowania i używania).
+- Preferencje decydenta można odwzorować poprzez przypisanie wag kryteriom.
+- Kryteria są wzajemnie niezależne, rozłączne i kompletne.
+
+---
+
+## 7. Możliwe rozszerzenia problemu
+
+Problem decyzyjny można rozszerzyć o dodatkowe aspekty:
+
+- **Plany zawodowe studenta** (np. chęć tworzenia aplikacji iOS może premiować macOS),
+- **Specyfika zajęć na uczelni** (np. wymagane środowiska programistyczne),
+- **Sprzętowe ograniczenia użytkownika** (RAM, CPU, dysk, dostępność komputera Mac),
+- **Dynamika technologiczna** – aktualizacje, nowe wersje, zmieniające się potrzeby użytkownika.
+
+---
+
+## 8. Podsumowanie
+
+Wybór systemu operacyjnego przez studenta informatyki to klasyczny problem decyzyjny z wieloma kryteriami. Wymaga on uwzględnienia zarówno aspektów technicznych, jak i subiektywnych preferencji użytkownika.
+
+Zastosowanie metod badań operacyjnych, takich jak analiza wielokryterialna, pozwala na:
+
+- Systematyczne podejście do podejmowania decyzji,
+- Ocenę dostępnych opcji w sposób obiektywny,
+- Dobór rozwiązania najlepiej dopasowanego do indywidualnych potrzeb użytkownika.
+
+Dzięki temu student może świadomie wybrać środowisko pracy, które będzie wspierać jego rozwój akademicki i zawodowy przez cały okres studiów.
+
+
 
 # Metodyki
 W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie wartości (0-9) dla każdej kategorii. To jaka wartość została nadana zależy od benchmarków, oceny własnej lub wypowiedzi użytkowników serwisów tematycznych. Każdej z kategorii przy pomocy metody AHP (Analytic Hierarchy Process) przypisano odpowiednią wagę. Następnie wykorzystaliśmy metodę TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) by wyłonić najlepszy system.
