@@ -53,7 +53,7 @@ Gdzie:
 - ` k_{ij} `– ocena alternatywy ` A_i ` względem kryterium ` K_j `,
 - ` U(A_i) ` – suma ważona ocen dla alternatywy `A_i `.
 
-Alternatywa, która uzyska najwyższy wynik ` U(A_i) `, powinna zostać wybrana jako optymalna.
+Alternatywa, która uzyska najwyższy wynik ` U(A_i) `, uznawana jest za najlepszą.
 
 # Założenia problemu
 
