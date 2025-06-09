@@ -53,9 +53,9 @@ Każdy z elementów tabeli jest dzielony przez sumę swojej kolumny, a następni
 W kolejnym kroku mnożymy wartości komórek razy wagę i sumujemy wiersze.
 
 
-|    Kryteria   | Koszt | Wydajność | Stabilność |           Suma |    Suma | Waga
+|    Kryteria   | Koszt | Wydajność | Stabilność  |    Suma / Waga |
 |---------------|-------------|------------|---------------|--------|
-| Waga | 0,56 | 1,22 | 0,32 |  |
+| Waga | 0,56 | 1,22 | 0,32 |  |  |
 | Koszt          | 0,57 * 0,56        | 0,13 * 1,22        |     0,6 * 0,32     | 1,03    |
 | Wydajność       | 0,14 * 0,56  | 1 * 1,22   |       0,1 * 0,32 |     1,04  |
 | Stabilność | 0,29 * 0,56 | 0,38  * 1,22 |        0,3 * 0,32|   0,94   |
