@@ -373,15 +373,18 @@ Przeanalizowaliśmy wrażliwość wyników na zmiany wag trzech kluczowych kryte
 Ubuntu i Fedora utrzymują przewagę przy wszystkich wartościach wagi.
 Windows stopniowo zyskuje, jednak nawet przy najwyższej wadze nie przełamuje przewagi Fedory i Ubuntu.
 macOS wypada najsłabiej i jego wynik praktycznie się nie zmienia.
+
 ![Bezpieczenstwo](https://github.com/user-attachments/assets/d3cfd521-23bd-480c-bd2d-83bdccf0bd90)
 # Wydajność
 Fedora wyraźnie zyskuje przy wzroście wagi tego kryterium – od poziomu +30 przejmuje prowadzenie w rankingu.
 Ubuntu traci przewagę, co oznacza, że wydajność to nie jej mocna strona.
 Windows i macOS również tracą, ale mniej istotnie – ich pozycje pozostają niskie.
+
 ![Wydajnosc](https://github.com/user-attachments/assets/a56ae617-deaf-40a2-8ced-2a9625b6f5ff)
 # Łatwość Obsługi
 Windows ma najwyższy wzrost oceny w tym kryterium, ale jego końcowy wynik nie rośnie znacząco przy zwiększaniu wagi.
 Ubuntu lekko traci, Fedora zyskuje, macOS rośnie minimalnie.
+
 ![Latwosc_Obslugi](https://github.com/user-attachments/assets/88c7022b-f35e-4608-b64a-edb0374de138)
 
 
