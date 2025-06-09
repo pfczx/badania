@@ -377,28 +377,26 @@ macOS wypada najsłabiej i jego wynik praktycznie się nie zmienia.
 ![Bezpieczenstwo](https://github.com/user-attachments/assets/d3cfd521-23bd-480c-bd2d-83bdccf0bd90)
 # Wydajność
 Fedora wyraźnie zyskuje przy wzroście wagi tego kryterium – od poziomu +30 przejmuje prowadzenie w rankingu.
-Ubuntu traci przewagę, co oznacza, że wydajność to nie jej mocna strona.
+Ubuntu traci przewagę, co oznacza, że wydajność to nie jego mocna strona.
 Windows i macOS również tracą, ale mniej istotnie – ich pozycje pozostają niskie.
 
 ![Wydajnosc](https://github.com/user-attachments/assets/a56ae617-deaf-40a2-8ced-2a9625b6f5ff)
 # Łatwość Obsługi
-Windows ma najwyższy wzrost oceny w tym kryterium, ale jego końcowy wynik nie rośnie znacząco przy zwiększaniu wagi.
+Windows ma najwyższą ocenę w tym kryterium, ale jego końcowy wynik nie rośnie znacząco przy zwiększaniu wagi – dzieje się tak z powodu niskich ocen w innych kryteriach.
 Ubuntu lekko traci, Fedora zyskuje, macOS rośnie minimalnie.
 
 ![Latwosc_Obslugi](https://github.com/user-attachments/assets/88c7022b-f35e-4608-b64a-edb0374de138)
 
 
 # Rekomendacje dla decydenta
-Dla użytkowników potrzebujących bezpieczeństwa Ubuntu jest "najbezpieczniejszym" wyborem, dopóki priorytetem nie staje się ekstremalna wydajność.
-Dla użytkowników potrzebujących łatwej obsługi systemu najlepszym wyborem będzie Windows.
-Dla użytkowników wymagających wysokiej wydajności Fedora staje się najlepszym wyborem.
-macOS średnio wypada w większości kryteriów.
+Ubuntu dla użytkowników potrzebujących bezpieczeństwa jest "najbezpieczniejszym" wyborem, dopóki priorytetem nie staje się ekstremalna wydajność.
 
-# Podsumowanie
-Ubuntu to stabilny lider w zrównoważonych scenariuszach.
-Fedora wygrywa przy nacisku na wydajność.
-Windows ma wybrane mocne strony, ale nie kompensują one ogólnych słabości.
-macOS pozostaje najmniej konkurencyjny w tej analizie.
+Windows może być dobrym wyborem dla użytkowników ceniących wygodę i znajomość środowiska, ale nie jest optymalny w ujęciu wielokryterialnym, gdzie liczy się ogólna efektywność i stabilność.
+
+Fedora to najlepszy wybór dla użytkowników technicznych i zaawansowanych, którzy cenią wydajność
+
+macOS może być atrakcyjny dla użytkowników ceniących prostotę obsługi i integrację z urządzeniami Apple, jednak w ujęciu wielokryterialnym wypada słabo.
+To system, który nie nadrabia braków jednym mocnym aspektem i w efekcie pozostaje ostatni niezależnie od analizowanej wagi kryteriów.
 
 # Źródła
 https://go.lightnode.com/tech/linux-fedora-vs-ubuntu
