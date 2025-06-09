@@ -80,7 +80,7 @@ Problem decyzyjny można rozszerzyć o dodatkowe aspekty:
 W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie wartości (1-9) dla każdej kategorii. To jaka wartość została nadana zależy od benchmarków, oceny własnej lub wypowiedzi użytkowników serwisów tematycznych. Każdej z kategorii przy pomocy metody AHP (Analytic Hierarchy Process) przypisano odpowiednią wagę. Następnie wykorzystaliśmy metodę TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) by wyłonić najlepszy system.
 
 ### AHP (Analytic Hierarchy Process):
-*Decyzja zostaje rozbita na hierarchię składającą się z:
+Decyzja zostaje rozbita na hierarchię składającą się z:
 - celu głównego, w naszym przypadku wybrania najlepszego systemu operacyjnego
 - kryteriów, przedstawionych w poniższej tabeli
 - podkryteriów (opcjonalne)
