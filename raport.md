@@ -83,7 +83,6 @@ W celu rozwiązania problemu dla każdego systemu przypisaliśmy odpowiednie war
 Decyzja zostaje rozbita na hierarchię składającą się z:
 - celu głównego, w naszym przypadku wybrania najlepszego systemu operacyjnego
 - kryteriów, przedstawionych w poniższej tabeli
-- podkryteriów (opcjonalne)
 - alternatyw (kandydatów)
 
 **Skala Saaty'ego**
@@ -101,7 +100,7 @@ Oto działanie AHP, krok po kroku.
 | Wydajność       |  1/4 |    1    |       1/3       |
 | Stabilność |  1/2 |   3   |       1       |
 
-Dla osoby wybierającej system *koszt* jest umiarkowanie ważniejszy niż *wydajność*, więc w pole koszt/wydajność wpisujemy 3, a w pole odwrotne - odwrotność liczby 3.
+Dla osoby wybierającej system *stabilność* jest umiarkowanie ważniejsza niż *wydajność*, więc w pole stabilność/wydajność wpisujemy 3, a w pole odwrotne - odwrotność liczby 3.
 Następnie liczby ułamkowe zostają przekonwertowane na liczby dziesiętne a dla każdej kolumny obliczna jest ich suma. 
 
 |    Kryteria   | Koszt | Wydajność | Stabilność |                    
